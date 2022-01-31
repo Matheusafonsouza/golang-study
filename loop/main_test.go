@@ -16,3 +16,9 @@ func TestLoop(t *testing.T) {
 		verifyMessage(t, iterations, expected)
 	})
 }
+
+func BenchmarkRepeat(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		repeat("a")
+	}
+}
