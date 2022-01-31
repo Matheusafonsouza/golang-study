@@ -3,10 +3,22 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-	result := hello("Afonso")
-	expected := "Hello, Afonso"
-
-	if expected != result {
-		t.Errorf("Result %s, expected %s", result, expected)
+	verifyMessage := func(t *testing.T, result string, expected string) {
+		t.Helper()
+		if expected != result {
+			t.Errorf("Result %s, expected %s", result, expected)
+		}
 	}
+
+	t.Run("Show say hello world if doesnt have someone", func(t *testing.T) {
+		result := hello("")
+		expected := "Hello, world"
+		verifyMessage(t, result, expected)
+	})
+
+	t.Run("Should say hello to someone", func(t *testing.T) {
+		result := hello("Afonso")
+		expected := "Hello, Afonso"
+		verifyMessage(t, result, expected)
+	})
 }
