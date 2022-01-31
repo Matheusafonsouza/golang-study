@@ -29,5 +29,5 @@ func hello(name string, language string) string {
 }
 
 func main() {
-	fmt.Println("Hello world!")
+	fmt.Println(hello("", ""))
 }
