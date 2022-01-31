@@ -2,13 +2,18 @@ package main
 
 import "fmt"
 
-const HELLO = "Hello, "
+const HELLO_ENGLISH = "Hello, "
+const HELLO_SPANISH = "Hola, "
 
-func hello(name string) string {
+func hello(name string, language string) string {
 	if name == "" {
 		name = "world"
 	}
-	return HELLO + name
+
+	if language == "spanish" {
+		return HELLO_SPANISH + name
+	}
+	return HELLO_ENGLISH + name
 }
 
 func main() {
