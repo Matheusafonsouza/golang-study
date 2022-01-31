@@ -10,15 +10,15 @@ func TestLoop(t *testing.T) {
 		}
 	}
 
-	t.Run("Should repeat character", func(t *testing.T) {
-		iterations := repeat("a")
-		expected := "aaaaa"
+	t.Run("Should repeat character N times", func(t *testing.T) {
+		iterations := repeat("a", 6)
+		expected := "aaaaaa"
 		verifyMessage(t, iterations, expected)
 	})
 }
 
 func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		repeat("a")
+		repeat("a", 6)
 	}
 }
