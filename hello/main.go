@@ -2,8 +2,10 @@ package main
 
 import "fmt"
 
+const HELLO = "Hello, "
+
 func hello(name string) string {
-	return fmt.Sprintf("Hello, %s!", name)
+	return HELLO + name
 }
 
 func main() {
