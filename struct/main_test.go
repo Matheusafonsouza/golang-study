@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestRetangle(t *testing.T) {
+func TestArea(t *testing.T) {
 	verifyMessage := func(t *testing.T, result float64, expected float64) {
 		t.Helper()
 		if expected != result {
@@ -10,22 +10,21 @@ func TestRetangle(t *testing.T) {
 		}
 	}
 
-	t.Run("Should calculate perimeter", func(t *testing.T) {
-		retangle := Retangle{height: 10.0, width: 10.0}
-		result := retangle.perimeter()
-		expected := 40.0
-		verifyMessage(t, result, expected)
-	})
+	areaTests := []struct {
+		form     Form
+		expected float64
+	}{
+		{Retangle{height: 10.0, width: 10.0}, 100.0},
+		{Circle{radius: 10.0}, 314.1592653589793},
+	}
 
-	t.Run("Should calculate area", func(t *testing.T) {
-		retangle := Retangle{height: 10.0, width: 10.0}
-		result := retangle.area()
-		expected := 100.0
-		verifyMessage(t, result, expected)
-	})
+	for _, tt := range areaTests {
+		result := tt.form.area()
+		verifyMessage(t, result, tt.expected)
+	}
 }
 
-func TestCircle(t *testing.T) {
+func TestPerimeter(t *testing.T) {
 	verifyMessage := func(t *testing.T, result float64, expected float64) {
 		t.Helper()
 		if expected != result {
@@ -33,10 +32,15 @@ func TestCircle(t *testing.T) {
 		}
 	}
 
-	t.Run("Should calculate area", func(t *testing.T) {
-		circle := Circle{radius: 10.0}
-		result := circle.area()
-		expected := 314.1592653589793
-		verifyMessage(t, result, expected)
-	})
+	areaTests := []struct {
+		form     Form
+		expected float64
+	}{
+		{Retangle{height: 10.0, width: 10.0}, 40.0},
+	}
+
+	for _, tt := range areaTests {
+		result := tt.form.perimeter()
+		verifyMessage(t, result, tt.expected)
+	}
 }

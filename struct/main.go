@@ -4,6 +4,7 @@ import "math"
 
 type Form interface {
 	area() float64
+	perimeter() float64
 }
 
 type Retangle struct {
@@ -25,4 +26,8 @@ type Circle struct {
 
 func (c Circle) area() float64 {
 	return math.Pi * c.radius * c.radius
+}
+
+func (c Circle) perimeter() float64 {
+	return 2 * math.Pi * c.radius
 }
