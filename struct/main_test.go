@@ -11,13 +11,15 @@ func TestLoop(t *testing.T) {
 	}
 
 	t.Run("Should calculate perimeter", func(t *testing.T) {
-		result := perimeter(10.0, 10.0)
+		retangle := Retangle{height: 10.0, width: 10.0}
+		result := perimeter(retangle)
 		expected := 40.0
 		verifyMessage(t, result, expected)
 	})
 
 	t.Run("Should calculate area", func(t *testing.T) {
-		result := area(10.0, 10.0)
+		retangle := Retangle{height: 10.0, width: 10.0}
+		result := area(retangle)
 		expected := 100.0
 		verifyMessage(t, result, expected)
 	})
