@@ -15,4 +15,10 @@ func TestLoop(t *testing.T) {
 		expected := 40.0
 		verifyMessage(t, result, expected)
 	})
+
+	t.Run("Should calculate area", func(t *testing.T) {
+		result := area(10.0, 10.0)
+		expected := 100.0
+		verifyMessage(t, result, expected)
+	})
 }
