@@ -10,11 +10,10 @@ func TestSum(t *testing.T) {
 		}
 	}
 
-	t.Run("Should sum all list numbers", func(t *testing.T) {
-		numbers := [5]int{1, 2, 3, 4, 5}
-
+	t.Run("Should sum all slice numbers", func(t *testing.T) {
+		numbers := []int{1, 2, 3}
 		result := sum(numbers)
-		expected := 15
+		expected := 6
 		verifyMessage(t, result, expected)
 	})
 }
