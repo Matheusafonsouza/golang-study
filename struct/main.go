@@ -2,6 +2,10 @@ package main
 
 import "math"
 
+type Form interface {
+	area() float64
+}
+
 type Retangle struct {
 	height float64
 	width  float64
